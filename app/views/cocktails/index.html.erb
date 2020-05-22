@@ -8,10 +8,10 @@
       <div class="card-body">
         <h5 class="card-title"><%= cocktail.name %></h5>
         <p class="card-text">A great cocktail</p>
-        <button type="button" class="btn btn-primary"><%= link_to "See details", cocktail_path(cocktail) %></button>
+        <%= link_to "See details", cocktail_path(cocktail), { class: "btn btn-primary" }  %>
       </div>
     <% end %>
   </div>
 
-  <button type="button" class="btn btn-light mt-3"><%= link_to "Add new cocktail", new_cocktail_path %></button>
+  <%= link_to "Add new cocktail", new_cocktail_path,  { class: "btn btn-primary" } %>
 </div>

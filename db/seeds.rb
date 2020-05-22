@@ -16,6 +16,17 @@
 # Ingredient.create(name: "triple sec")
 # puts "Finished!"
 
+Ingredient.destroy_all
+Cocktail.destroy_all
+
+puts 'Populating my database...'
+
+cocktails = ['Long island ice tea', 'Margarita', 'Moscow Mule']
+
+cocktails.each do |cocktail|
+  Cocktail.create(name: cocktail)
+end
+
 require 'rest-client'
 require 'json'
 

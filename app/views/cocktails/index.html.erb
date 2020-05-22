@@ -3,18 +3,20 @@
   <button type="button" class="btn btn-light p-3 text-center"><%= link_to "Add new cocktail", new_cocktail_path %></button>
 
   <div class="cards">
+
     <% @cocktails.each do |cocktail| %>
 
-      <% if cocktail.photo.attached? %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>')">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        <% if cocktail.photo.attached? %>
+          url('<%= cl_image_path cocktail.photo.key %>')
+        <% else %>
+          url(<%= cl_image_path 'syuhi6cfo3pcfpzqyovo' %>)
+        <% end %>">
         <%= link_to cocktail.name, cocktail_path(cocktail)  %>
-      <% else %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path 'syuhi6cfo3pcfpzqyovo' %>)">
-        <%= link_to cocktail.name, cocktail_path(cocktail)   %>
         </div>
-      <% end %>
 
     <% end %>
+
   </div>
 
 </div>

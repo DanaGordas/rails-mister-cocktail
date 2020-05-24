@@ -3,7 +3,7 @@
 
   <%= simple_form_for([@cocktail, @dose]) do |f| %>
     <%= f.input :description, prompt: "Choose a dose" %>
-    <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Choose an ingredient" %>
+    <%= f.input :ingredient_id, collection: Ingredient.all, class: "select2", prompt: "Choose an ingredient" %>
     <%= f.button :submit, class: "btn btn-gradient mt-3" %>
   <% end %>
 

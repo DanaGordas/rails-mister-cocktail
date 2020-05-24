@@ -9,6 +9,24 @@ require("@rails/activestorage").start()
 require("channels")
 import 'bootstrap';
 
+// Import other js files
+
+import { loadDynamicBannerText } from '../components/banner';
+
+// import { initSelect2 } from '../components/init_select2';
+
+// import { tooltip } from '../components/tooltip';
+
+// Call the functions with turbolinks load
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  // [...]
+  loadDynamicBannerText();
+  initSelect2();
+  // tooltip();
+});
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

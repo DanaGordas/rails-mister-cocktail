@@ -1,0 +1,22 @@
+i {
+  font-size: 20px;
+  color: $copper;
+}
+
+i:hover {
+  background: linear-gradient(#f27654, #a55742);
+  color: white;
+}
+
+.list-group {
+  list-style-type: none;
+}
+
+.list-group li {
+  font-size: 15px;
+}
+
+#ingredients {
+  font-size: 20px;
+  font-weight: bold;
+}

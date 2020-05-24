@@ -1,28 +1,28 @@
-<div class="container mt-3">
+<div class="container mt-5">
 
-<% if @cocktail.photo.attached? %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key %>')">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    <% if @cocktail.photo.attached?  %>
+      url('<%= cl_image_path @cocktail.photo.key %>')
+    <% else %>
+    url(<%= cl_image_path 'syuhi6cfo3pcfpzqyovo' %>)
+    <% end %>">
     <%= @cocktail.name %>
   </div>
-<% else %>
-    <%= @cocktail.name %>
-<% end %>
 
-  <p><strong>Ingredients:</strong></p>
-    <ul>
+  <div class="centered mt-3">
+    <ul class="list-group">
+      <li class="list-group-item" id="ingredients">Ingredients<%= link_to "<i class='fas fa-plus ml-2'></i>".html_safe, new_cocktail_dose_path(@cocktail) %></li>
       <% @cocktail.doses.each do |dose|%>
-        <li>
+        <li class="list-group-item">
           <%= dose.description %>
           <%= dose.ingredient.name %>
-          <%= link_to "🗑 Delete", dose_path(dose), method: :delete %>
+          <%= link_to "<i class='fas fa-trash-alt ml-2'></i>".html_safe, dose_path(dose), method: :delete , data: { confirm: "Are you sure you want to remove the ingredient?" }%>
         </li>
       <% end %>
     </ul>
+  </div>
 
-  <button type="button" class="btn btn-light p-3"><%= link_to "Add new ingredient", new_cocktail_dose_path(@cocktail) %></button>
-  <br>
-  <br>
-  <button type="button" class="btn btn-light p-3"><%= link_to 'Back', root_path %></button>
-  <br>
+  <%= link_to "Back", root_path, class: "btn btn-gradient mt-3" %>
+
 
 </div>

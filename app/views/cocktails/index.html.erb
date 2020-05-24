@@ -1,22 +1,23 @@
-<div class="container mt-3">
-  <h1 class="text-center">Mister Cocktail</h1>
-  <button type="button" class="btn btn-light p-3 text-center"><%= link_to "Add new cocktail", new_cocktail_path %></button>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1502819126416-d387f86d47a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80);">
+  <div class="container">
+    <h1>Mister Cocktail</h1>
+    <p>Enjoy our amazing cocktails or add your own creation!</p>
+    <%= link_to "Add new cocktail", new_cocktail_path, class: "btn btn-gradient" %>
+  </div>
+</div>
 
+<div class="container mt-3 mb-3">
   <div class="cards">
-
     <% @cocktails.each do |cocktail| %>
-
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
         <% if cocktail.photo.attached? %>
           url('<%= cl_image_path cocktail.photo.key %>')
         <% else %>
           url(<%= cl_image_path 'syuhi6cfo3pcfpzqyovo' %>)
         <% end %>">
-        <%= link_to cocktail.name, cocktail_path(cocktail)  %>
+        <p><%= link_to cocktail.name, cocktail_path(cocktail)  %></p>
         </div>
-
     <% end %>
-
   </div>
 
 </div>

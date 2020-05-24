@@ -1,13 +1,12 @@
 <div class="container">
-<h1>Add a new ingredient and dose for <%= @cocktail.name %></h1>
+  <h1>Add a new ingredient and dose for <%= @cocktail.name %></h1>
 
-<%= simple_form_for([@cocktail, @dose]) do |f| %>
-  <%= f.input :description, prompt: "Choose a dose" %>
-  <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Choose an ingredient" %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for([@cocktail, @dose]) do |f| %>
+    <%= f.input :description, prompt: "Choose a dose" %>
+    <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Choose an ingredient" %>
+    <%= f.button :submit, class: "btn btn-gradient mt-3" %>
+  <% end %>
 
-<br>
-  <button type="button" class="btn btn-light"><%= link_to 'Back', root_path %></button>
+  <%= link_to "Back", cocktail_path(@cocktail), class: "btn btn-gradient mt-3" %>
 
 </div>

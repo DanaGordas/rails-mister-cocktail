@@ -1,12 +1,16 @@
-<div class="container">
-  <h1>Add a new ingredient and dose for <%= @cocktail.name %></h1>
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <h1>Add a new ingredient and dose for <%= @cocktail.name %></h1>
 
-  <%= simple_form_for([@cocktail, @dose]) do |f| %>
-    <%= f.input :description, prompt: "Choose a dose" %>
-    <%= f.input :ingredient_id, collection: Ingredient.all, class: "select2", prompt: "Choose an ingredient" %>
-    <%= f.button :submit, class: "btn btn-gradient mt-3" %>
-  <% end %>
+      <%= simple_form_for([@cocktail, @dose]) do |f| %>
+        <%= f.input :description, prompt: "Choose a dose" %>
+        <%= f.input :ingredient_id, collection: Ingredient.all, class: "select2", prompt: "Choose an ingredient" %>
+        <%= f.button :submit, class: "btn btn-gradient mt-3"%>
+      <% end %>
 
-  <%= link_to "Back", cocktail_path(@cocktail), class: "btn btn-gradient mt-3" %>
+      <%= link_to "Back", cocktail_path(@cocktail), class: "btn btn-gradient mt-3" %>
+    </div>
+  </div>
 
 </div>

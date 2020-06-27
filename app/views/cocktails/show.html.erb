@@ -14,7 +14,7 @@
 
       <div class="centered mt-3">
         <ul class="list-group">
-          <li class="list-group-item" id="ingredients">Ingredients<%= link_to "<i class='fas fa-plus ml-2' data-toggle='tooltip' data-placement='top' title='Add ingredient' id='add_ingredient'></i>".html_safe, new_cocktail_dose_path(@cocktail) %></li>
+          <li class="list-group-item" id="ingredients">Ingredients<%= link_to "<i class='fas fa-plus-circle ml-2' data-toggle='tooltip' data-placement='top' title='Add ingredient' id='add_ingredient'></i>".html_safe, new_cocktail_dose_path(@cocktail) %></li>
           <% @cocktail.doses.each do |dose|%>
             <li class="list-group-item">
               <%= dose.description %>
@@ -24,7 +24,7 @@
           <% end %>
         </ul>
       </div>
-      <%= link_to "Back", root_path, class: "btn btn-gradient mt-3" %>
+      <%= link_to "<i class='fas fa-undo-alt' style='color: white;'></i> Back".html_safe, root_path, class: "btn btn-gradient mt-3", style: "color: white;" %>
     </div>
 
   </div>
